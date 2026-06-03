@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DBMS Project: Robotics Inventory</title>
+    <link rel="stylesheet" type="text/css" href="style.css?v=3">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Robotics Component Management System</h1>
+        <p>By: 2nd Year DBMS Group</p>
+    </div>
+
+    <div class="navbar">
+        <a href="#" class="nav-link active" data-tab="dashboard">Dashboard</a>
+        <a href="#" class="nav-link" data-tab="inventory">Inventory List</a>
+        <a href="#" class="nav-link" data-tab="issue">Issue Component</a>
+        <a href="#" class="nav-link" data-tab="return">Return Component</a>
+    </div>
+
+    <div class="container">
+
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="section active">
+            <h2>Live Dashboard</h2>
+            
+            <table class="stats-table">
+                <tr>
+                    <th>Total Components Types</th>
+                    <th>Total Items in Stock</th>
+                    <th>Currently Available Items</th>
+                </tr>
+                <tr>
+                    <td id="stat-total-components">0</td>
+                    <td id="stat-total-items">0</td>
+                    <td id="stat-available-items">0</td>
+                </tr>
+            </table>
+
+            <h3>Recent Transactions</h3>
+            <table id="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Component Name</th>
+                        <th>Type</th>
+                        <th>Quantity</th>
+                        <th>Student/Person</th>
+                        <th>Date & Time</th>
+                    </tr>
+                </thead>
+                <tbody id="recent-activity-body">
+                    <!-- Data will come from database -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Inventory Section -->
+        <div id="inventory" class="section">
+            <h2>Inventory Management</h2>
+            
+            <div class="add-box">
+                <h3>Add New Component to Database</h3>
+                <form id="add-component-form">
+                    <label>Component Name:</label>
+                    <input type="text" id="comp-name" required placeholder="e.g. Arduino">
+                    
+                    <label>Category:</label>
+                    <select id="comp-category" required>
+                        <option value="Microcontroller">Microcontroller</option>
+                        <option value="Sensor">Sensor</option>
+                        <option value="Motor">Motor</option>
+                        <option value="Misc">Misc</option>
+                    </select>
+                    
+                    <label>Total Quantity:</label>
+                    <input type="number" id="comp-qty" min="1" required>
+                    
+                    <br><br>
+                    <button type="submit">Insert Component</button>
+                </form>
+            </div>
+
+            <h3>Current Components in Database</h3>
+            <table id="inventory-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Total Qty</th>
+                        <th>Available Qty</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-body">
+                    <!-- Data will come from database -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Issue Section -->
+        <div id="issue" class="section">
+            <h2>Issue Component to Student</h2>
+            <form id="issue-form">
+                <label>Select Component:</label>
+                <select id="issue-component" required>
+                    <option value="">Loading...</option>
+                </select>
+
+                <label>Quantity to Issue:</label>
+                <input type="number" id="issue-qty" min="1" required>
+
+                <label>Student Name/Roll No:</label>
+                <input type="text" id="issue-person" required>
+
+                <br><br>
+                <button type="submit">Submit Issue</button>
+            </form>
+        </div>
+
+        <!-- Return Section -->
+        <div id="return" class="section">
+            <h2>Return Component</h2>
+            <form id="return-form">
+                <label>Select Component:</label>
+                <select id="return-component" required>
+                    <option value="">Loading...</option>
+                </select>
+
+                <label>Quantity to Return:</label>
+                <input type="number" id="return-qty" min="1" required>
+
+                <label>Student Name/Roll No:</label>
+                <input type="text" id="return-person" required>
+
+                <br><br>
+                <button type="submit">Submit Return</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>DBMS Mini Project - 2026</p>
+    </div>
+
+    <script src="app.js?v=2"></script>
+</body>
+</html>
